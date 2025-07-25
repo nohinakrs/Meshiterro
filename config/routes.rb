@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   #:destroyリンクを追加(13章)
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
   #usersのルーティング(14章)
-  resources :users, only: [:show, :edit]
+  # 以下の行のonly: []内にupdateを追加(14章)
+  resources :users, only: [:show, :edit, :update]
 
   get "/homes/about" => "homes#about", as: "about"
 end
