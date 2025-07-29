@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   # 以下の行のonly: []内にupdateを追加(14章)
   resources :users, only: [:show, :edit, :update]
 
+  #19章のルーティング、単数形のresourceを使うとURLにidが含まれなくなる。
+  # resourceそれ自身のidが分からなくても、関連する他のモデルのidから特定できる時に用いる。
+  resource :favorite, only: [:create, :destroy]
+
   get "/homes/about" => "homes#about", as: "about"
 end

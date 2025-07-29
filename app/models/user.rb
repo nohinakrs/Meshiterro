@@ -8,6 +8,8 @@ class User < ApplicationRecord
          # ↓18章で追加、UserモデルとPostCommentモデルを関連付ける記述
          has_many :post_comments, dependent: :destroy
          has_one_attached :profile_image
+         # 19章で追加
+         has_many :favorites, dependent: :destroy
 
   
   def get_profile_image(width, height)
