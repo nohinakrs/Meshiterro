@@ -6,6 +6,10 @@ class PostImage < ApplicationRecord
   # ↓19章で追加。フェイバリット（いいね機能）との連携
   has_many :favorites, dependent: :destroy
 
+  #shop_nameが存在しているかを確認するバリデーション
+  validates :shop_name, presence: true
+  #imageが存在しているかを確認するバリデーション
+  validates :image, presence: true
   
   def get_image
     unless image.attached?

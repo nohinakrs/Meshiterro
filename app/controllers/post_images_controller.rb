@@ -3,12 +3,15 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.new
   end
 
-# 投稿データの保存
+# 投稿データの保存、21章でバリデーション実装
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+      redirect_to post_images_path
+    else
+      render :new
+    end
   end
 
   def index
