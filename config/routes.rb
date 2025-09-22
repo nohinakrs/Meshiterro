@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
   #↑アプリケーションを発展させようの章で追記。管理者権限を実装
+  namespace :admin do
+    get 'dashboards', to: 'dashboards#index'
+    resources :users, only: [:destroy] # ユーザー削除機能実装のため、ここを追加
+  end
+  #↑管理者ダッシュボードへのルート設定
 
   root to: 'homes#top'
   devise_for :users
