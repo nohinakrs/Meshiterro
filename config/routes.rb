@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: 'admin/sessions'
+  }
+  #↑アプリケーションを発展させようの章で追記。管理者権限を実装
+
   root to: 'homes#top'
   devise_for :users
   
