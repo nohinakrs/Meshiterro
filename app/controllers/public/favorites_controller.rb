@@ -1,4 +1,5 @@
-class FavoritesController < ApplicationController
+class Public::FavoritesController < ApplicationController
+  # 構造の変更の際、Publicに移動したので、コントローラーにPublic::を記述
 
   def create
     post_image = PostImage.find(params[:post_image_id])
