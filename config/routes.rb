@@ -28,4 +28,5 @@ scope module: :public do
   #usersのルーティング(14章)
   # 以下の行のonly: []内にupdateを追加(14章)
   resources :users, only: [:show, :edit, :update]
+  end
 end
